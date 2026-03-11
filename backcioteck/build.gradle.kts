@@ -1,3 +1,11 @@
+val javaVersion = System.getProperty("java.version") 
+var javaUsed = 21
+if(javaVersion == 21){
+	javaUsed = 21
+} else if (javaVersion == 25){
+	javaUsed = 25
+}
+
 plugins {
 	java
 	id("org.springframework.boot") version "4.0.3"
@@ -10,7 +18,7 @@ description = "Demo project for Spring Boot"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(25)
+		languageVersion = JavaLanguageVersion.of(javaUsed)
 	}
 }
 
