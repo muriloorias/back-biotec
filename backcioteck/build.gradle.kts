@@ -1,11 +1,3 @@
-val javaVersion = System.getProperty("java.version") 
-var javaUsed = 21
-if(javaVersion == 21){
-	javaUsed = 21
-} else if (javaVersion == 25){
-	javaUsed = 25
-}
-
 plugins {
 	java
 	id("org.springframework.boot") version "4.0.3"
@@ -18,7 +10,7 @@ description = "Demo project for Spring Boot"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(javaUsed)
+		languageVersion = JavaLanguageVersion.of(25)
 	}
 }
 
@@ -39,6 +31,9 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation ("org.springframework.boot:spring-boot-starter-web")
+    runtimeOnly ("com.h2database:h2")
 }
 
 tasks.withType<Test> {
